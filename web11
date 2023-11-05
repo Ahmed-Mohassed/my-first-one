@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Save Users</title>
+</head>
+<body>
+  <h1>Save Users</h1>
+  
+  <form id="userForm">
+    <label for="username">Username (Numbers only):</label>
+    <input type="text" id="username" name="username" pattern="[0-9]+" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <button type="submit">Save User</button>
+  </form>
+  
+  <section id="savedUsers">
+    <h2>Saved Users:</h2>
+    <!-- The saved users will be displayed here -->
+  </section>
+  
+  <script>
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      // Get user input values
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      
+      // Create a new paragraph element
+      var newUser = document.createElement("p");
+      
+      // Set the text content of the new paragraph to the entered username and password
+      newUser.textContent = "Username: " + username + ", Password: " + password;
+      
+      // Append the new paragraph to the "savedUsers" section
+      document.getElementById("savedUsers").appendChild(newUser);
+      
+      // Reset the form
+      document.getElementById("userForm").reset();
+    });
+  </script>
+</body>
+</html>
